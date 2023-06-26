@@ -5,6 +5,7 @@
         <div class="q-pa-md">
           <q-tree
             :nodes="simple"
+            no-selection-unset
             node-key="component"
             selected-color="primary"
             v-model:selected="selectedSection"
