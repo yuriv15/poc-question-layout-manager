@@ -7,7 +7,7 @@ export const useGlobalLayoutStore = defineStore('globalLayout', () => {
       gap: 0,
       headerSection: {
         show: true,
-        height: '100%',
+        height: '60px',
         virtualScroll: false,
         borderSettings: {
           borderStyle: 'none',
@@ -50,7 +50,7 @@ export const useGlobalLayoutStore = defineStore('globalLayout', () => {
       },
       footerSection: {
         show: true,
-        height: '100%',
+        height: '60px',
         virtualScroll: false,
         borderSettings: {
           borderStyle: 'none',
@@ -72,30 +72,41 @@ export const useGlobalLayoutStore = defineStore('globalLayout', () => {
     },
   });
 
-  // const headerStyle = computed({
-  //   get: () => {
-  //     const { headerSection } = settings.value.questionnaireSection;
-  //     return {
-  //       height: headerSection.height,
-  //       overflow: headerSection.virtualScroll ? 'scroll-y' : 'none',
-  //       ...headerSection.borderSettings,
-  //       ...headerSection.backgroundSettings,
-  //       ...headerSection.marginSettings,
-  //       ...headerSection.paddingSettings,
-  //     };
-  //   },
-  //   set: (
-  //     styleSettings: Partial<
-  //       typeof settings.value.questionnaireSection.headerSection
-  //     >
-  //   ) => {
-  //     const { headerSection } = settings.value.questionnaireSection;
-  //     settings.value.questionnaireSection.headerSection = {
-  //       ...headerSection,
-  //       ...styleSettings,
-  //     };
-  //   },
-  // });
+  const headerStyle = computed(() => {
+    const headerSection = settings.value.questionnaireSection.headerSection;
 
-  return { settings };
+    return {
+      height: headerSection.height,
+      overflowY: headerSection.virtualScroll ? 'auto' : 'hidden',
+      ...headerSection.borderSettings,
+      ...headerSection.marginSettings,
+      ...headerSection.paddingSettings,
+    };
+  });
+
+  const bodyStyle = computed(() => {
+    const bodySection = settings.value.questionnaireSection.bodySection;
+
+    return {
+      height: bodySection.height,
+      overflowY: bodySection.virtualScroll ? 'auto' : 'hidden',
+      ...bodySection.borderSettings,
+      ...bodySection.marginSettings,
+      ...bodySection.paddingSettings,
+    };
+  });
+
+  const footerStyle = computed(() => {
+    const footerSection = settings.value.questionnaireSection.footerSection;
+
+    return {
+      height: footerSection.height,
+      overflowY: footerSection.virtualScroll ? 'auto' : 'hidden',
+      ...footerSection.borderSettings,
+      ...footerSection.marginSettings,
+      ...footerSection.paddingSettings,
+    };
+  });
+
+  return { settings, headerStyle, bodyStyle, footerStyle };
 });
