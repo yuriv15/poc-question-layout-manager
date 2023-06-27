@@ -15,7 +15,9 @@
       </template>
 
       <template v-slot:after>
-        <component :is="components[selectedSection]"></component>
+        <component :is="components[selectedSection]">
+          <component :first="true" :is="components[`${selectedSection}Cell`]" />
+        </component>
       </template>
     </q-splitter>
   </q-page>

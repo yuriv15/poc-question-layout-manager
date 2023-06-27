@@ -21,6 +21,7 @@ export const useGlobalLayoutStore = defineStore('globalLayout', () => {
         },
         marginSettings: {
           margin: 0,
+          boxSizing: 'border-box',
         },
         paddingSettings: {
           padding: 0,
@@ -46,6 +47,7 @@ export const useGlobalLayoutStore = defineStore('globalLayout', () => {
         },
         paddingSettings: {
           padding: 0,
+          boxSizing: 'border-box',
         },
       },
       footerSection: {
@@ -67,6 +69,7 @@ export const useGlobalLayoutStore = defineStore('globalLayout', () => {
         },
         paddingSettings: {
           padding: 0,
+          boxSizing: 'border-box',
         },
       },
     },

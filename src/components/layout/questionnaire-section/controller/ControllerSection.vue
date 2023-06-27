@@ -4,7 +4,7 @@
 
     <q-toggle
       :disable="props.type === 'body'"
-      label="Show header"
+      :label="`Show ${props.type}`"
       v-model="settings.questionnaireSection[`${props.type}Section`].show"
     />
     <QSlideTransition>
@@ -14,7 +14,8 @@
       >
         <q-input
           v-model="settings.questionnaireSection[`${props.type}Section`].height"
-          label="Header height"
+          :label="`${props.type} height`"
+          class="text-capitalize"
           outlined
         />
 
