@@ -12,15 +12,22 @@
       <!--        </span>-->
       <!--      </div>-->
     </div>
+    <div class="q-my-md" />
+    <HeaderSectionController
+      v-if="sectionLayoutStore.selectedCell"
+      type="header"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 import { useGlobalLayoutStore } from 'stores/global-layout-config-store';
-import { uid } from 'quasar';
+import HeaderSectionController from 'components/layout/questionnaire-section/controller/HeaderSectionController.vue';
+import { useSectionLayoutStore } from 'stores/section-layout-config-store';
 
 const { settings, headerStyle } = storeToRefs(useGlobalLayoutStore());
+const sectionLayoutStore = useSectionLayoutStore();
 </script>
 
 <style lang="scss" scoped>
